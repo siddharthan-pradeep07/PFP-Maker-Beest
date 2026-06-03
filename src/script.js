@@ -1,8 +1,20 @@
-document.querySelectorAll('.toggle-bar button').forEach(btn =>
+const buttons = document.querySelectorAll('.toggle-bar button');
+const snippet_panel = document.getElementById('snippet-panel');
+
+buttons.forEach(btn =>
 {
     btn.addEventListener('click', () =>
     {
-        document.querySelectorAll('.toggle-bar button').forEach(b => b.classList.remove('active'));
+        buttons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+
+        if (btn.textContent === 'Background')
+        {
+            snippet_panel.classList.add('visible');
+        }
+        else
+        {
+            snippet_panel.classList.remove('visible');
+        }
     });
 });

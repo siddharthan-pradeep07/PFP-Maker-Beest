@@ -84,3 +84,52 @@ body
     left: 50%;
     transform: translateX(-50%);
 }
+
+.snippet-panel
+{
+    position: absolute;
+    top: 100px;
+    right: 24px;
+    width: 280px;
+    bottom: 24px;
+    background: #836549;
+    border-radius: 0px;
+    border: 3px solid #201609;
+    padding: 10px;
+    display: none;
+    overflow-y: auto;
+}
+
+.snippet-panel.visible
+{
+    display: block;
+}
+
+.snippet-grid
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.snippet-grid img
+{
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 1px;
+    border: 2px solid #7a5c3a;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.snippet-grid img:hover
+{
+    border-color: #3d2510;
+}
+
+.snippet-grid img.selected
+{
+    border-color: #3d2510;
+    border-width: 3px;
+}
