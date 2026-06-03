@@ -1,0 +1,83 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body 
+{
+    min-height: 100vh;
+    background: radial-gradient(ellipse at center, #ffffff 0%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.win-bg 
+{
+    display: block;
+    margin: 0 auto;
+    border-radius: 16px;
+    border:#504133 2px solid;
+    width: 1000px;
+    height: 620px;
+    object-fit: cover;
+}
+
+.toggle-bar
+{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: #e8d5b0;
+    border-radius: 0px;
+    border: 2px solid #7a5c3a;
+    padding: 4px;
+    white-space: nowrap;
+}
+
+.toggle-bar button
+{
+    border: 2px solid transparent;
+    background: transparent;
+    border-radius: 0px;
+    padding: 6px 16px;
+    font-family: 'Questrial', sans-serif;
+    font-size: 0.9rem;
+    color: #5c3d1e;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.toggle-bar button:hover
+{
+    background: #d4b896;
+}
+
+.toggle-bar button.active
+{
+    background: #6b4423;
+    color: #f5e6ce;
+    border-color: #3d2510;
+}
+
+.win-bg-wrapper
+{
+    position: relative;
+    width: 1000px;
+    height: 620px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.win-bg-wrapper .win-bg
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.win-bg-wrapper .toggle-bar
+{
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+}

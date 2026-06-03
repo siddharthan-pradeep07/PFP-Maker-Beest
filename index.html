@@ -4,32 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Image Display</title>
-<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body 
-    {
-        min-height: 100vh;
-        background: radial-gradient(ellipse at center, #ffffff 0%, #ffffff 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .win-bg 
-    {
-        display: block;
-        margin: 0 auto;
-        border-radius: 16px;
-        width: 1000px;
-        height: 620px;
-        object-fit: cover;
-    }
-</style>
+<link rel="stylesheet" href="src/style.css">
 </head>
 <body>
+<div class="win-bg-wrapper">
+    <img class="win-bg" src="static/bg/win_bg_3.jpg" alt="Window Background" />
+    <div class="toggle-bar">
+        <button class="active">Background</button>
+        <button>Character</button>
+        <button>Eyes</button>
+        <button>Hair</button>
+        <button>Mouth</button>
+        <button>Tie</button>
+        <button>Ears</button>
+        <button>Cheeks</button>
+    </div>
+</div>
 
-    <img class="win-bg" src="static/bg/win_bg_2.jpg" alt="Window Background" />
-
+<script src="src/script.js"></script>
 </body>
 </html>
