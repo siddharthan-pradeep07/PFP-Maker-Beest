@@ -1,6 +1,14 @@
 const buttons = document.querySelectorAll('.toggle-bar button');
-const snippet_panel = document.getElementById('snippet-panel');
+// const snippet_panel = document.getElementById('snippet-panel');
 const preview_img = document.getElementById('preview-img');
+
+function showTab(tabName)
+{
+    document.querySelectorAll('.snippet-grid').forEach(grid =>
+    {
+        grid.classList.toggle('active', grid.dataset.tab === tabName);
+    });
+}
 
 buttons.forEach(btn =>
 {
@@ -8,15 +16,7 @@ buttons.forEach(btn =>
     {
         buttons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        if (btn.textContent === 'Background')
-        {
-            snippet_panel.classList.add('visible');
-        }
-        else
-        {
-            snippet_panel.classList.remove('visible');
-        }
+        showTab(btn.textContent);
     });
 });
 
@@ -31,3 +31,5 @@ document.querySelectorAll('.snippet-grid img').forEach(img =>
         preview_img.classList.add('visible');
     });
 });
+
+showTab('Background');
