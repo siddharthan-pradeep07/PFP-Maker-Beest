@@ -183,8 +183,9 @@ body
     background: #aa977f;
     display: none;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 24px;
     gap: 24px;
 }
 
@@ -195,8 +196,8 @@ body
 
 .fullview-close-btn
 {
-    background: #776652;
-    border: 2px solid #4d3820;
+    background: #b16b6b;
+    border: 2px solid #7a4747;
     border-radius: 2px;
     color: #f1d9be;
     cursor: pointer;
@@ -211,13 +212,14 @@ body
     background: #776652;
     border: 2px solid #4d3820;
     border-radius: 2px;
-    color: #f1d9be;
+    color: #fff2e3;
     font-family: "Nixie One", system-ui;
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 16px 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    min-width: 700px;
+    gap: 5px;
+    width: 100%;
+    flex: 1;
 }
 
