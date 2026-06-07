@@ -229,9 +229,12 @@ body
     background: #b16b6b;
     border: 2px solid #7a4747;
     border-radius: 2px;
-    color: #f1d9be;
+    color: #ffeedb;
     font-family: "Nixie One", system-ui;
     font-size: 0.9rem;
     padding: 6px 14px;
     cursor: pointer;
+    position: absolute;
+    top: 544px;
+    left: 24px;
 }

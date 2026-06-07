@@ -1,5 +1,5 @@
 const buttons = document.querySelectorAll('.toggle-bar button');
-const preview_box = document.querySelector('.preview-box');
+const preview_box = document.getElementById('preview-box');
 const info_btn = document.getElementById('info-btn');
 const fullview_close = document.getElementById('fullview-close');
 const toggle_wrapper = document.querySelector('.toggle-wrapper');
