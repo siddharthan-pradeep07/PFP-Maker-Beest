@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PFP Maker || Beest</title>
-<link rel="stylesheet" href="src/style.css">
+<link rel="stylesheet" href="src/style.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nixie+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <div class="win-bg-wrapper">
-    <img class="win-bg" src="static/bg/win_bg_4.jpg" alt="Window Background" />
     <div class="preview-box">
-        <img id="preview-img" src="" alt="Preview" />
+        <img id="preview-img" src="static/snipets/background/bg-1.png" alt="Preview" />
     </div>
+    <div class="toggle-wrapper">
     <div class="toggle-bar">
         <button class="active">Background</button>
         <button>Character</button>
@@ -22,7 +25,17 @@
         <button>Cheeks</button>
         <button>Extra</button>
     </div>
-<div class="snippet-panel" id="snippet-panel">
+    <button class="info-btn" id="info-btn"><span class="material-icons">more_horiz</span></button>
+</div>
+    <div class="fullview-close" id="fullview-close">
+        <button class="fullview-close-btn" id="fullview-close-btn"><span class="material-icons">arrow_back</span></button>
+        <div class="fullview-notes">
+            <p> heya!</p>
+            <p> dsjibv</p>
+            <p> rgjn</p>
+        </div>
+    </div>
+    <div class="snippet-panel" id="snippet-panel">
 
         <div class="snippet-grid" data-tab="Background">
             <img src="static/snipets/background/bg-1.png" alt="bg-1" />
@@ -42,6 +55,39 @@
             <img src="static/snipets/character/char-5.png" alt="char-5" />
             <img src="static/snipets/character/char-6.png" alt="char-6" />
             <img src="static/snipets/character/char-7.png" alt="char-7" />
+            <img src="static/snipets/empty/empty.png" alt="empty" />
+        </div>
+
+        <div class="snippet-grid" data-tab="Head ons">
+            <img src="static/snipets/head/hair-1.png" alt="hair-1" />
+            <img src="static/snipets/head/hair-2.png" alt="hair-2" />
+            <img src="static/snipets/head/hair-3.png" alt="hair-3" />
+            <img src="static/snipets/head/hair-4.png" alt="hair-4" />
+            <img src="static/snipets/head/hair-5.png" alt="hair-5" />
+            <img src="static/snipets/head/horn-1.png" alt="horn-1" />
+            <img src="static/snipets/head/horn-2.png" alt="horn-2" />
+            <img src="static/snipets/head/horn-3.png" alt="horn-3" />
+            <img src="static/snipets/head/horn-4.png" alt="horn-4" />
+            <img src="static/snipets/head/horn-5.png" alt="horn-5" />
+            <img src="static/snipets/head/horn-6.png" alt="horn-6" />
+            <img src="static/snipets/head/hat-1.png" alt="hat-1" />
+            <img src="static/snipets/head/add-on-1.png" alt="add-on-1" />
+            <img src="static/snipets/empty/empty.png" alt="empty" />
+        </div>
+
+        <div class="snippet-grid" data-tab="Shirts">
+            <!-- <img src="static/snipets/shirts/shirt-1.png" alt="shirt-1" />
+            <img src="static/snipets/shirts/shirt-2.png" alt="shirt-2" />
+            <img src="static/snipets/shirts/shirt-3.png" alt="shirt-3" />
+            <img src="static/snipets/shirts/shirt-4.png" alt="shirt-4" /> -->
+            <img src="static/snipets/shirts/shirt-5.png" alt="shirt-5" />
+            <img src="static/snipets/shirts/shirt-6.png" alt="shirt-6" />
+            <img src="static/snipets/shirts/shirt-7.png" alt="shirt-7" />
+            <img src="static/snipets/shirts/shirt-8.png" alt="shirt-8" />
+            <img src="static/snipets/shirts/shirt-9.png" alt="shirt-9" />
+            <img src="static/snipets/shirts/shirt-10.png" alt="shirt-10" />
+            <img src="static/snipets/shirts/shirt-11.png" alt="shirt-11" />
+            <img src="static/snipets/shirts/shirt-12.png" alt="shirt-12" />
             <img src="static/snipets/empty/empty.png" alt="empty" />
         </div>
     </div>

@@ -1,5 +1,9 @@
 const buttons = document.querySelectorAll('.toggle-bar button');
 const preview_box = document.querySelector('.preview-box');
+const info_btn = document.getElementById('info-btn');
+const fullview_close = document.getElementById('fullview-close');
+const toggle_wrapper = document.querySelector('.toggle-wrapper');
+const snippet_panel = document.getElementById('snippet-panel');
 const selections = {};
 
 const layerOrder = 
@@ -67,3 +71,19 @@ document.querySelectorAll('.snippet-grid img').forEach(img =>
 });
 
 showTab('Background');
+
+info_btn.addEventListener('click', () =>
+{
+    toggle_wrapper.style.display = 'none';
+    snippet_panel.style.display = 'none';
+    preview_box.style.display = 'none';
+    fullview_close.classList.add('visible');
+});
+
+document.getElementById('fullview-close-btn').addEventListener('click', () =>
+{
+    toggle_wrapper.style.display = 'flex';
+    snippet_panel.style.display = 'block';
+    preview_box.style.display = 'block';
+    fullview_close.classList.remove('visible');
+});
