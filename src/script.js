@@ -91,28 +91,58 @@ document.getElementById('fullview-close-btn').addEventListener('click', () =>
 document.getElementById('save-btn').addEventListener('click', () =>
 {
     const canvas = document.createElement('canvas');
-    canvas.width = preview_box.clientWidth;
-    canvas.height = preview_box.clientHeight;
+    canvas.width = preview_box.offsetWidth;
+    canvas.height = preview_box.offsetHeight;
     const ctx = canvas.getContext('2d');
-    const images = preview_box.querySelectorAll('img');
-    let loaded = 0;
 
-    images.forEach(img =>
+    const orderedSrcs = layerOrder
+        .filter(layer => selections[layer])
+        .map(layer => ({ src: selections[layer], isBg: layer === 'Background' }));
+
+    if (orderedSrcs.length === 0)
     {
+        alert('No layers selected yet');
+        return;
+    }
+
+    let index = 0;
+
+    function drawNext()
+    {
+        if (index >= orderedSrcs.length)
+        {
+            const link = document.createElement('a');
+            link.download = 'pfp.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            return;
+        }
+
+        const { src, isBg } = orderedSrcs[index];
         const tempImg = new Image();
-        tempImg.crossOrigin = 'anonymous';
-        tempImg.src = img.src;
+        tempImg.src = src;
         tempImg.onload = () =>
         {
-            ctx.drawImage(tempImg, 0, 0, canvas.width, canvas.height);
-            loaded++;
-            if (loaded === images.length)
+            if (isBg)
             {
-                const link = document.createElement('a');
-                link.download = 'pfp.png';
-                link.href = canvas.toDataURL();
-                link.click();
+                ctx.drawImage(tempImg, 0, 0, canvas.width, canvas.height);
             }
+            else
+            {
+                const size = Math.min(canvas.width, canvas.height);
+                const x = (canvas.width - size) / 2;
+                const y = (canvas.height - size) / 2;
+                ctx.drawImage(tempImg, x, y, size, size);
+            }
+            index++;
+            drawNext();
         };
-    });
+        tempImg.onerror = () =>
+        {
+            index++;
+            drawNext();
+        };
+    }
+
+    drawNext();
 });    
