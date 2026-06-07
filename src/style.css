@@ -204,6 +204,7 @@ body
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
     padding: 4px 10px;
 }
 
@@ -218,8 +219,19 @@ body
     padding: 16px 20px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    text-decoration: none;
+    gap: 7px;
     width: 100%;
     flex: 1;
 }
-
+.save-btn
+{
+    background: #b16b6b;
+    border: 2px solid #7a4747;
+    border-radius: 2px;
+    color: #f1d9be;
+    font-family: "Nixie One", system-ui;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    cursor: pointer;
+}

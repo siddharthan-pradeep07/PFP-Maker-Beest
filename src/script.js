@@ -87,3 +87,32 @@ document.getElementById('fullview-close-btn').addEventListener('click', () =>
     preview_box.style.display = 'block';
     fullview_close.classList.remove('visible');
 });
+
+document.getElementById('save-btn').addEventListener('click', () =>
+{
+    const canvas = document.createElement('canvas');
+    canvas.width = preview_box.clientWidth;
+    canvas.height = preview_box.clientHeight;
+    const ctx = canvas.getContext('2d');
+    const images = preview_box.querySelectorAll('img');
+    let loaded = 0;
+
+    images.forEach(img =>
+    {
+        const tempImg = new Image();
+        tempImg.crossOrigin = 'anonymous';
+        tempImg.src = img.src;
+        tempImg.onload = () =>
+        {
+            ctx.drawImage(tempImg, 0, 0, canvas.width, canvas.height);
+            loaded++;
+            if (loaded === images.length)
+            {
+                const link = document.createElement('a');
+                link.download = 'pfp.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            }
+        };
+    });
+});    
