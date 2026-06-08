@@ -27,7 +27,7 @@ const random_blocklist =
     'Head ons':   ['empty.png'],
     'Mouth':      [],
     'Cheeks':     [],
-    'Extra':      []
+    'Extra':      ['empty.png']
 };
 
 function render_preview()
@@ -72,11 +72,20 @@ document.querySelectorAll('.snippet-grid img').forEach(img =>
 {
     img.addEventListener('click', () =>
     {
-        const activeTab = document.querySelector('.toggle-bar button.active').textContent;
+        const activeTab =
+        document.querySelector('.toggle-bar button.active').textContent;
+        const currentGrid =
+        document.querySelector(`.snippet-grid[data-tab="${activeTab}"]`);
+        currentGrid.querySelectorAll('img')
+        .forEach(i => i.classList.remove('selected'));
+        if (img.alt === 'empty')
+        {
+            delete selections[activeTab];
+            render_preview();
+            return;
+        }
 
-        document.querySelectorAll(`.snippet-grid[data-tab="${activeTab}"] img`).forEach(i => i.classList.remove('selected'));
         img.classList.add('selected');
-
         selections[activeTab] = img.src;
         render_preview();
     });
