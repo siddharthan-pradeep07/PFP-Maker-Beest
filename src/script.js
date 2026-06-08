@@ -146,3 +146,21 @@ document.getElementById('save-btn').addEventListener('click', () =>
 
     drawNext();
 });    
+
+document.getElementById('random-btn').addEventListener('click', () =>
+{
+    document.querySelectorAll('.snippet-grid img').forEach(i => i.classList.remove('selected'));
+
+    layerOrder.forEach(layer =>
+    {
+        const grid = document.querySelector(`.snippet-grid[data-tab="${layer}"]`);
+        if (!grid) return;
+        const images = Array.from(grid.querySelectorAll('img'));
+        if (images.length === 0) return;
+        const random_img = images[Math.floor(Math.random() * images.length)];
+        random_img.classList.add('selected');
+        selections[layer] = random_img.src;
+    });
+
+    render_preview();
+});
