@@ -18,6 +18,18 @@ const layerOrder =
     'Extra'
 ];
 
+const random_blocklist = 
+{
+    'Background': [],
+    'Character':  ['empty.png'],
+    'Shirts':     ['empty.png'],
+    'Eyes':       [],
+    'Head ons':   ['empty.png'],
+    'Mouth':      [],
+    'Cheeks':     [],
+    'Extra':      []
+};
+
 function render_preview()
 {
     preview_box.querySelectorAll('img').forEach(img => img.remove());
@@ -155,7 +167,9 @@ document.getElementById('random-btn').addEventListener('click', () =>
     {
         const grid = document.querySelector(`.snippet-grid[data-tab="${layer}"]`);
         if (!grid) return;
-        const images = Array.from(grid.querySelectorAll('img'));
+        const blocked = random_blocklist[layer] || [];
+        const images = Array.from(grid.querySelectorAll('img'))
+        .filter(img => !blocked.some(b => img.src.includes(b)));
         if (images.length === 0) return;
         const random_img = images[Math.floor(Math.random() * images.length)];
         random_img.classList.add('selected');
