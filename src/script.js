@@ -26,7 +26,7 @@ const random_blocklist =
     'Shirts':     ['empty.png'],
     'Eyes':       ['empty.png'],
     'Head ons':   ['empty.png'],
-    'Mouth':      [],
+    'Mouth':      ['empty.png', 'mouth-3.png'],
     'Cheeks':     [],
     'Extra':      ['empty.png']
 };
@@ -162,8 +162,6 @@ document.getElementById('save-btn').addEventListener('click', () =>
             orderedSrcs.push({ src: selections[layer], isBg: layer === 'Background' });
         }
     });
-        // .filter(layer => selections[layer])
-        // .map(layer => ({ src: selections[layer], isBg: layer === 'Background' }));
 
     if (orderedSrcs.length === 0)
     {
@@ -227,9 +225,14 @@ document.getElementById('random-btn').addEventListener('click', () =>
         if (images.length === 0) return;
         if (layer === 'Extra')
         {
-            const random_img = images[Math.floor(Math.random() * images.length)];
-            random_img.classList.add('selected');
-            selections.Extra = [random_img.src];
+            selections.Extra = [];
+            const shuffled = images.sort(() => Math.random() - 0.5);
+            const count = Math.floor(Math.random() * images.length)+1;
+            shuffled.slice(0, count).forEach(img =>
+            {
+                img.classList.add('selected');
+                selections.Extra.push(img.src);
+            });
             return;
         }
         const random_img = images[Math.floor(Math.random() * images.length)];
