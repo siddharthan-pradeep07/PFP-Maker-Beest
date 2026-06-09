@@ -24,7 +24,7 @@ const random_blocklist =
     'Background': [],
     'Character':  ['empty.png'],
     'Shirts':     ['empty.png'],
-    'Eyes':       [],
+    'Eyes':       ['empty.png'],
     'Head ons':   ['empty.png'],
     'Mouth':      [],
     'Cheeks':     [],
@@ -147,9 +147,23 @@ document.getElementById('save-btn').addEventListener('click', () =>
     canvas.height = preview_box.offsetHeight;
     const ctx = canvas.getContext('2d');
 
-    const orderedSrcs = layerOrder
-        .filter(layer => selections[layer])
-        .map(layer => ({ src: selections[layer], isBg: layer === 'Background' }));
+    const orderedSrcs = [];
+    layerOrder.forEach(layer =>
+    {
+        if (layer === 'Extra')
+        {
+            (selections.Extra || []).forEach(src =>
+            {
+                orderedSrcs.push({ src, isBg: false });
+            });
+            return;
+        }
+        if (selections[layer])        {
+            orderedSrcs.push({ src: selections[layer], isBg: layer === 'Background' });
+        }
+    });
+        // .filter(layer => selections[layer])
+        // .map(layer => ({ src: selections[layer], isBg: layer === 'Background' }));
 
     if (orderedSrcs.length === 0)
     {
