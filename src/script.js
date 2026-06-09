@@ -5,6 +5,7 @@ const fullview_close = document.getElementById('fullview-close');
 const toggle_wrapper = document.querySelector('.toggle-wrapper');
 const snippet_panel = document.getElementById('snippet-panel');
 const selections = {};
+selections["Extra"] = [];
 
 const layerOrder = 
 [
@@ -36,6 +37,21 @@ function render_preview()
 
     layerOrder.forEach(layer =>
     {
+        if (layer === 'Extra')
+        {
+            (selections.Extra || []).forEach(src =>
+            {
+                const img = document.createElement('img');
+                img.src = src;
+                img.style.position = 'absolute';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'contain';
+                preview_box.appendChild(img);
+            });
+            return;
+        }
+
         if (selections[layer])
         {
             const img = document.createElement('img');
@@ -44,7 +60,6 @@ function render_preview()
             img.style.width = '100%';
             img.style.height = '100%';
             img.style.objectFit = layer === 'Background' ? 'cover' : 'contain';
-            img.style.display = 'block';
             preview_box.appendChild(img);
         }
     });
@@ -73,12 +88,28 @@ document.querySelectorAll('.snippet-grid img').forEach(img =>
     img.addEventListener('click', () =>
     {
         const activeTab =
-        document.querySelector('.toggle-bar button.active').textContent;
-        const currentGrid =
-        document.querySelector(`.snippet-grid[data-tab="${activeTab}"]`);
-        currentGrid.querySelectorAll('img')
-        .forEach(i => i.classList.remove('selected'));
-        if (img.alt === 'empty')
+            document.querySelector('.toggle-bar button.active').textContent;
+
+        if (activeTab === 'Extra')
+        {
+            if (!selections.Extra) selections.Extra = [];
+            if (img.classList.contains('selected'))
+            {
+                img.classList.remove('selected');
+                selections.Extra = selections.Extra.filter(src => src !== img.src);
+            }
+            else
+            {
+                img.classList.add('selected');
+                selections.Extra.push(img.src);
+            }
+            render_preview();
+            return;
+        }
+        document.querySelectorAll
+        (`.snippet-grid[data-tab="${activeTab}"] img`).forEach(i => i.classList.remove('selected'));
+
+        if (img.src.includes('empty.png'))
         {
             delete selections[activeTab];
             render_preview();
@@ -180,6 +211,13 @@ document.getElementById('random-btn').addEventListener('click', () =>
         const images = Array.from(grid.querySelectorAll('img'))
         .filter(img => !blocked.some(b => img.src.includes(b)));
         if (images.length === 0) return;
+        if (layer === 'Extra')
+        {
+            const random_img = images[Math.floor(Math.random() * images.length)];
+            random_img.classList.add('selected');
+            selections.Extra = [random_img.src];
+            return;
+        }
         const random_img = images[Math.floor(Math.random() * images.length)];
         random_img.classList.add('selected');
         selections[layer] = random_img.src;
