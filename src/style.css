@@ -93,7 +93,7 @@ body
     top: 100px;
     right: 24px;
     width: 280px;
-    bottom: 24px;
+    bottom: 60px;
     background: #776652;
     border-radius: 0px;
     border: 2px solid #4d3820;
@@ -254,4 +254,137 @@ body
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.reserved-btn
+{
+    background: #776652;
+    border: 2px solid #4d3820;
+    border-radius: 2px;
+    color: #fff6eb;
+    font-family: "Nixie One", system-ui;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    transition: 0.15s ease;
+}
+
+.reserved-btn:hover
+{
+    background: #85725d;
+}
+
+.popup-overlay
+{
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.popup-overlay.visible
+{
+    display: flex;
+}
+
+.popup-box
+{
+    background: #aa977f;
+    border: 2px solid #4d3820;
+    border-radius: 4px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 340px;
+    max-width: 420px;
+    /* box-shadow: 0 8px 24px rgba(0,0,0,0.25); */
+}
+
+.popup-title
+{
+    color: #000000;
+    font-family: "Nixie One", system-ui;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+
+.popup-sub
+{
+    color: #f6eadb;
+    font-family: "Nixie One", system-ui;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.popup-input
+{
+    background: #776652;
+    border: 2px solid #4d3820;
+    border-radius: 2px;
+    padding: 8px 10px;
+    color: #ffffff;
+    font-family: "Nixie One", system-ui;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.popup-input::placeholder
+{
+    color: #e4d5c4;
+}
+
+.popup-input:focus
+{
+    border-color: #b16b6b;
+}
+
+.popup-actions
+{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.popup-btn-confirm
+{
+    background: #b16b6b;
+    border: 2px solid #7a4747;
+    border-radius: 2px;
+    color: #fff6eb;
+    font-family: "Nixie One", system-ui;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.popup-btn-confirm:hover
+{
+    background: #c37777;
+}
+
+.popup-btn-secondary
+{
+    background: #776652;
+    border: 2px solid #4d3820;
+    border-radius: 2px;
+    color: #fff6eb;
+    font-family: "Nixie One", system-ui;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.popup-btn-secondary:hover
+{
+    background: #85725d;
 }
